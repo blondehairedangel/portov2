@@ -31,7 +31,7 @@ export function Education() {
                     <h3
                       className={cn(
                         item.primary
-                          ? "text-display-l font-medium"
+                          ? "text-title font-medium"
                           : "text-body font-medium text-fg-muted",
                       )}
                     >

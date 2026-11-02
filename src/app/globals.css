@@ -102,6 +102,11 @@
   --text-display-l--line-height: 1;
   --text-display-l--letter-spacing: -0.035em;
 
+  /* Between display-l and heading: names in ledger rows (e.g. institutions). */
+  --text-title: clamp(1.75rem, 3.4vw, 2.75rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.03em;
+
   --text-heading: clamp(1.5rem, 2.4vw, 2rem);
   --text-heading--line-height: 1.15;
   --text-heading--letter-spacing: -0.02em;
@@ -279,12 +284,15 @@
 /* Scroll-driven header rule and progress line (no JS)                 */
 /* ------------------------------------------------------------------ */
 
+/* The hairline is its own element and fades by opacity. Animating
+   border-color from `transparent` is interpolated differently between
+   engines and can pass through a dark gray. */
 @keyframes header-rule {
   from {
-    border-bottom-color: transparent;
+    opacity: 0;
   }
   to {
-    border-bottom-color: var(--border);
+    opacity: 1;
   }
 }
 
@@ -297,8 +305,14 @@
   }
 }
 
-.site-header {
-  border-bottom: 1px solid var(--border);
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--border);
+  pointer-events: none;
 }
 
 .scroll-progress {
@@ -306,8 +320,8 @@
 }
 
 @supports (animation-timeline: scroll()) {
-  .site-header {
-    border-bottom-color: transparent;
+  .site-header::after {
+    opacity: 0;
     animation: header-rule linear both;
     animation-timeline: scroll(root);
     animation-range: 0 80px;

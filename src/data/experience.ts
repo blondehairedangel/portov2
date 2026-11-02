@@ -39,18 +39,6 @@ export const experience: Experience[] = [
     ],
   },
   {
-    slug: "bncc",
-    organization: "Bina Nusantara Computer Club (BNCC)",
-    role: "Student",
-    location: "Jakarta, Indonesia",
-    start: "2024-09",
-    end: "2025-06",
-    summary: [
-      "Retired member of the BNCC community, participating in UI/UX class design activities and developing foundational design knowledge.",
-    ],
-    expertise: [],
-  },
-  {
     slug: "cardrive",
     organization: "Cardrive Indonesia",
     role: "Social Media Manager",

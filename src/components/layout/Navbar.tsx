@@ -6,8 +6,11 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   return (
-    <header className="site-header sticky top-0 z-50 bg-bg/85 backdrop-blur-md backdrop-saturate-150">
-      <div className="container-page flex h-[var(--header-h)] items-center justify-between gap-6">
+    // Opaque background so scrolling content never shows through. The height
+    // token includes the 1px border (border-box), so it matches --header-h
+    // everywhere it is used (hero height, mobile menu offset, scroll padding).
+    <header className="site-header sticky top-0 z-50 h-[var(--header-h)] bg-bg">
+      <div className="container-page flex h-full items-center justify-between gap-6">
         <Link
           href="/"
           className="relative z-50 -ml-1 px-1 py-2 text-[0.9375rem] font-medium tracking-[-0.01em] text-fg"
@@ -38,7 +41,7 @@ export function Navbar() {
       </div>
       <div
         aria-hidden
-        className="scroll-progress absolute inset-x-0 -bottom-px h-px bg-accent"
+        className="scroll-progress absolute inset-x-0 bottom-0 z-10 h-px bg-accent"
       />
     </header>
   );
