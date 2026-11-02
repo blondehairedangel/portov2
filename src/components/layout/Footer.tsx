@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { navigation, profile } from "@/data/profile";
 import { ThemeControl } from "./ThemeControl";
 
@@ -17,12 +16,12 @@ export function Footer() {
           <ul className="flex flex-wrap gap-x-6 gap-y-1">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link
+                <a
                   href={item.href}
                   className="link-draw inline-block py-2 text-small text-fg-muted transition-colors hover:text-fg md:py-0"
                 >
                   {item.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

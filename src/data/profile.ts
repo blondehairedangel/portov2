@@ -68,12 +68,17 @@ export const profile = {
 
 export const mailto = `mailto:${profile.email}`;
 
+/**
+ * Primary navigation. The site is a single page, so every item is an anchor to
+ * a homepage section id (see homeSections; the Projects section's id is "work").
+ * The leading "/" keeps the links valid from the 404 page too.
+ */
 export const navigation = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about/" },
-  { label: "Experience", href: "/experience/" },
-  { label: "Projects", href: "/projects/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#work" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 /** Homepage sections, in order. Used for the hero index and section numbering. */
