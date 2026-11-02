@@ -79,6 +79,7 @@ loaded, which keeps the font payload to one extra file.
 | ------------- | --------------------------------- | ----------- | --------- | ------ |
 | `display-xl`  | `clamp(3.25rem, 9vw, 9rem)`       | 0.92        | -0.045em  | 500    |
 | `display-l`   | `clamp(2.5rem, 5.5vw, 5rem)`      | 1.0         | -0.035em  | 500    |
+| `title`       | `clamp(1.75rem, 3.4vw, 2.75rem)`  | 1.1         | -0.03em   | 500    |
 | `heading`     | `clamp(1.5rem, 2.4vw, 2rem)`      | 1.15        | -0.02em   | 500    |
 | `lead`        | `clamp(1.25rem, 1.8vw, 1.5rem)`   | 1.4         | -0.01em   | 400    |
 | `body`        | `1.0625rem` (17px)                | 1.6         | 0         | 400    |
@@ -122,7 +123,8 @@ makes the pages feel edited.
 ## 6. Page compositions
 
 ### Header
-- 64px tall, sticky. Background `--bg` at 85% opacity with a light backdrop blur.
+- 64px tall including its 1px border, sticky. Solid `--bg` background (no transparency or
+  blur) so scrolling content never shows through.
 - A bottom hairline fades in once the page scrolls (CSS scroll-driven animation; no JS).
 - Left: wordmark "Neil Stanley" (Geist Sans 500). Right: five text links, theme toggle.
 - Active page: text color `--fg` with a 1px underline; inactive links `--fg-muted`.

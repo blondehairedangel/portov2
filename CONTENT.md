@@ -76,13 +76,12 @@ Headline: **A little about *me.***
 | # | Organization | Role | Location | Period |
 |---|---|---|---|---|
 | 1 | PT DEWAWEB | L1 IT Support | Indonesia | Feb 2026 – Present |
-| 2 | Bina Nusantara Computer Club (BNCC) | Student | Jakarta, Indonesia | Sep 2024 – Jun 2025 |
-| 3 | Cardrive Indonesia | Social Media Manager | Jakarta, Indonesia | May 2022 – Present |
-| 4 | MANDIRI MOTOR | Technical Specialist | Jakarta, Indonesia | Apr 2022 – Present |
-| 5 | nailnotpros | Self-Employed | DKI Jakarta | Aug 2021 – Present |
+| 2 | Cardrive Indonesia | Social Media Manager | Jakarta, Indonesia | May 2022 – Present |
+| 3 | MANDIRI MOTOR | Technical Specialist | Jakarta, Indonesia | Apr 2022 – Present |
+| 4 | nailnotpros | Self-Employed | DKI Jakarta | Aug 2021 – Present |
 
-Descriptions are verbatim from the brief except the softened lines below. BNCC has no
-expertise list in the brief, so none is shown.
+The Bina Nusantara Computer Club (BNCC) entry (Student, Sep 2024 – Jun 2025) was removed at
+Neil's request. Descriptions are verbatim from the brief except the softened lines below.
 
 **Softened wording.** The first and third rows use Neil's exact replacement text. The
 remaining parts of those sentences stay close to the original:
