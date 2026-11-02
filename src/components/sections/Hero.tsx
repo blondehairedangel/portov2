@@ -9,6 +9,7 @@ export function Hero() {
 
   return (
     <section
+      id="home"
       aria-labelledby="hero-heading"
       className="flex min-h-[calc(100svh-var(--header-h))] flex-col"
     >
