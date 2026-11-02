@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+/* Dark mode follows the `.dark` class on <html> (set before paint by ThemeScript). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/* Tokens (see DESIGN.md §2)                                           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --bg: #fafafa;
+  --bg-subtle: #f4f4f4;
+  --fg: #171717;
+  --fg-muted: #737373;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --accent: #2563eb;
+
+  /* Placeholder tints for project visuals (light). */
+  --tint-stone: #ece7e0;
+  --tint-stone-ink: #8a7d6c;
+  --tint-sage: #e3e8e1;
+  --tint-sage-ink: #6f7f6c;
+  --tint-concrete: #e8e5dd;
+  --tint-concrete-ink: #8c7a52;
+  --tint-slate: #e1e5ea;
+  --tint-slate-ink: #66717f;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Rhythm (DESIGN.md §4) */
+  --section-y: clamp(6rem, 12vw, 12rem);
+  --block-gap: clamp(2.5rem, 5vw, 4.5rem);
+  --row-y: clamp(1.25rem, 2vw, 1.75rem);
+
+  /* Grid (DESIGN.md §5) */
+  --page-margin: 20px;
+  --gutter: 16px;
+  --header-h: 64px;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #101010;
+  --bg-subtle: #171717;
+  --fg: #f5f5f5;
+  --fg-muted: #a3a3a3;
+  --border: #303030;
+  --border-strong: #404040;
+  --accent: #60a5fa;
+
+  --tint-stone: #1f1c19;
+  --tint-stone-ink: #a8997f;
+  --tint-sage: #1a1e1a;
+  --tint-sage-ink: #8fa08b;
+  --tint-concrete: #1f1d18;
+  --tint-concrete-ink: #b39c69;
+  --tint-slate: #191c20;
+  --tint-slate-ink: #8b97a6;
+
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 32px;
+    --gutter: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-margin: clamp(40px, 5vw, 80px);
+    --gutter: 24px;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  --ease-soft: var(--ease-out-soft);
+}
+
+@theme {
+  /* Fluid type scale (DESIGN.md §3) */
+  --text-display-xl: clamp(3.25rem, 9vw, 9rem);
+  --text-display-xl--line-height: 0.92;
+  --text-display-xl--letter-spacing: -0.045em;
+
+  --text-display-l: clamp(2.5rem, 5.5vw, 5rem);
+  --text-display-l--line-height: 1;
+  --text-display-l--letter-spacing: -0.035em;
+
+  --text-heading: clamp(1.5rem, 2.4vw, 2rem);
+  --text-heading--line-height: 1.15;
+  --text-heading--letter-spacing: -0.02em;
+
+  --text-lead: clamp(1.25rem, 1.8vw, 1.5rem);
+  --text-lead--line-height: 1.4;
+  --text-lead--letter-spacing: -0.01em;
+
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--fg);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: calc(var(--header-h) + 24px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Layout utilities                                                    */
+/* ------------------------------------------------------------------ */
+
+@utility container-page {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+/* 4 / 8 / 12 column grid sharing one set of vertical lines. */
+@utility grid-layout {
+  display: grid;
+  column-gap: var(--gutter);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+/* Mono metadata label. */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+}
+
+/* The serif italic accent word inside a headline. Newsreader runs slightly
+   small next to Geist at the same size, so it is nudged up. */
+@utility serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+  letter-spacing: -0.02em;
+}
+
+/* Underline that draws in from the left on hover / focus. */
+@utility link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 250ms var(--ease-out-soft);
+
+  &:hover,
+  &:focus-visible,
+  &[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero entrance (CSS, runs at first paint; DESIGN.md §7)              */
+/* ------------------------------------------------------------------ */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter-rise {
+    animation: rise-in 700ms var(--ease-out-soft) both;
+    animation-delay: calc(var(--enter-step, 0) * 80ms);
+  }
+
+  .enter-fade {
+    animation: fade-in 600ms var(--ease-out-soft) both;
+    animation-delay: calc(var(--enter-step, 0) * 80ms);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll-driven header rule and progress line (no JS)                 */
+/* ------------------------------------------------------------------ */
+
+@keyframes header-rule {
+  from {
+    border-bottom-color: transparent;
+  }
+  to {
+    border-bottom-color: var(--border);
+  }
+}
+
+@keyframes progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .site-header {
+    border-bottom-color: transparent;
+    animation: header-rule linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 80px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      display: block;
+      transform-origin: 0 50%;
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Skills: dim sibling disciplines while one is hovered (no JS)        */
+/* ------------------------------------------------------------------ */
+
+@media (hover: hover) {
+  .discipline-grid:has(.discipline:hover) .discipline:not(:hover) {
+    opacity: 0.4;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Theme cross-fade via View Transitions (ThemeToggle)                 */
+/* ------------------------------------------------------------------ */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+  animation-timing-function: var(--ease-out-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
