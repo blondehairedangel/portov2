@@ -68,13 +68,23 @@ export const profile = {
 
 export const mailto = `mailto:${profile.email}`;
 
-export const navigation = [
+export type NavItem = {
+  label: string;
+  href: string;
+  /** External links open in a new tab. */
+  external?: boolean;
+};
+
+/**
+ * Header, mobile menu, and footer navigation. The homepage sections (About,
+ * Experience, Skills, Work, Education, Contact) stay on the page and are
+ * reached by scrolling or the hero's section index.
+ */
+export const navigation: readonly NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about/" },
-  { label: "Experience", href: "/experience/" },
-  { label: "Projects", href: "/projects/" },
-  { label: "Contact", href: "/contact/" },
-] as const;
+  { label: "neils.cc", href: "https://neils.cc", external: true },
+  { label: "Blog", href: "https://pintutidakterkunci.com", external: true },
+];
 
 /** Homepage sections, in order. Used for the hero index and section numbering. */
 export const homeSections = [

@@ -15,16 +15,24 @@ export function Footer() {
 
         <nav aria-label="Footer" className="col-span-4 md:col-span-5 lg:col-span-6">
           <ul className="flex flex-wrap gap-x-6 gap-y-1">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="link-draw inline-block py-2 text-small text-fg-muted transition-colors hover:text-fg md:py-0"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navigation.map((item) => {
+              const className =
+                "link-draw inline-block py-2 text-small text-fg-muted transition-colors hover:text-fg md:py-0";
+              return (
+                <li key={item.href}>
+                  {item.external ? (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+                      {item.label}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <Link href={item.href} className={className}>
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

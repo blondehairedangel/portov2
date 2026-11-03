@@ -126,10 +126,13 @@ makes the pages feel edited.
 - 64px tall including its 1px border, sticky. Solid `--bg` background (no transparency or
   blur) so scrolling content never shows through.
 - A bottom hairline fades in once the page scrolls (CSS scroll-driven animation; no JS).
-- Left: wordmark "Neil Stanley" (Geist Sans 500). Right: five text links, theme toggle.
-- Active page: text color `--fg` with a 1px underline; inactive links `--fg-muted`.
+- Left: wordmark "Neil Stanley" (Geist Sans 500). Right: three text links (Home, neils.cc, Blog), theme toggle.
+  neils.cc and Blog are external and open in a new tab. The homepage sections are reached by
+  scrolling or the hero's section index, not the header.
+- Active page: text color `--fg` with a 1px underline; inactive links `--fg-muted`. External
+  links are never marked active.
 - Mobile (< 768px): wordmark + "Menu" text button + theme toggle. Menu opens a full-screen
-  sheet with large stacked links numbered `01–05` in mono. Focus is trapped, Esc closes,
+  sheet with large stacked links numbered `01–03` in mono. Focus is trapped, Esc closes,
   body scroll is locked.
 
 ### Home: Hero (asymmetric, oversized type)

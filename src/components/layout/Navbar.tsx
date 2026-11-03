@@ -25,6 +25,7 @@ export function Navbar() {
                 <li key={item.href}>
                   <NavLink
                     href={item.href}
+                    external={item.external}
                     className="link-draw py-2 text-small transition-colors duration-200"
                   >
                     {item.label}

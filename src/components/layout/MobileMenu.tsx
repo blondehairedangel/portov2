@@ -95,6 +95,7 @@ export function MobileMenu() {
                 >
                   <NavLink
                     href={item.href}
+                    external={item.external}
                     onNavigate={close}
                     className="flex items-baseline gap-4 py-4 text-[2.25rem] leading-none font-medium tracking-[-0.03em] transition-colors"
                   >
