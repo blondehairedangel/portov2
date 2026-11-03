@@ -26,7 +26,7 @@ export const profile = {
   study: { programme: "Information Systems", institution: "BINUS University" },
 
   hero: {
-    headline: { text: "Technology meets", emphasis: "creativity." } satisfies Headline,
+    headline: { text: "Learning. Building.", emphasis: "Troubleshooting." } satisfies Headline,
     supporting:
       "Exploring technology, solving problems, and building meaningful digital experiences.",
     intro:

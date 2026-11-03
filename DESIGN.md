@@ -16,7 +16,7 @@ Three devices carry the identity across every page:
    (`--border`), the way a printed index or an annual report is laid out. Rows replace cards.
 2. **A sans/serif voice split.** Headlines are set in Geist Sans, tight and confident.
    One word per headline at most switches to an italic editorial serif (Newsreader Italic).
-   Example: `Technology meets` *`creativity.`* The serif is the "creative" half of the
+   Example: `Learning. Building.` *`Troubleshooting.`* The serif is the "creative" half of the
    brand; the sans is the "technical" half. It is used sparingly so it keeps its meaning.
 3. **Mono metadata.** Dates, locations, section numbers, and tool names are set in Geist Mono,
    small, uppercase, tracked. This reads as "technical" without resorting to code motifs,
@@ -77,7 +77,7 @@ loaded, which keeps the font payload to one extra file.
 
 | Token         | Size                              | Line height | Tracking  | Weight |
 | ------------- | --------------------------------- | ----------- | --------- | ------ |
-| `display-xl`  | `clamp(3.25rem, 9vw, 9rem)`       | 0.92        | -0.045em  | 500    |
+| `display-xl`  | `clamp(2.75rem, 9vw, 9rem)`       | 0.92        | -0.045em  | 500    |
 | `display-l`   | `clamp(2.5rem, 5.5vw, 5rem)`      | 1.0         | -0.035em  | 500    |
 | `title`       | `clamp(1.75rem, 3.4vw, 2.75rem)`  | 1.1         | -0.03em   | 500    |
 | `heading`     | `clamp(1.5rem, 2.4vw, 2rem)`      | 1.15        | -0.02em   | 500    |
@@ -142,8 +142,8 @@ makes the pages feel edited.
 │ NEIL STANLEY — PORTFOLIO    NORTH JAKARTA, ID    INFORMATION SYSTEMS · IT│  mono strip
 │───────────────────────────────────────────────────────────────────────│
 │                                                                       │
-│ Technology meets                                                      │  display-xl
-│ creativity.   (serif italic)                                          │
+│ Learning. Building.                                                   │  display-xl
+│ Troubleshooting.   (serif italic)                                     │
 │                                                                       │
 │                                   Information Systems student at      │  cols 7–12
 │                                   BINUS University. Currently L1 IT   │  lead

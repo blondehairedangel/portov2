@@ -39,7 +39,7 @@ marked with a `TODO(content)` comment in `src/data/`.
 - Footer: "Neil Stanley © {build year}" · "Built with Next.js."
 
 ### Home: Hero
-- Headline: **Technology meets *creativity.***
+- Headline: **Learning. Building. *Troubleshooting.***
 - Supporting line: Exploring technology, solving problems, and building meaningful digital
   experiences.
 - Intro: Information Systems Student at BINUS University. Currently working as L1 IT Support

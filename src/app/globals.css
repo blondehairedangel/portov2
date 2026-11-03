@@ -94,7 +94,9 @@
 
 @theme {
   /* Fluid type scale (DESIGN.md §3) */
-  --text-display-xl: clamp(3.25rem, 9vw, 9rem);
+  /* Minimum sized so the longest unbreakable headline word ("Troubleshooting.")
+     fits a 360px screen. Above ~490px the 9vw term is unchanged. */
+  --text-display-xl: clamp(2.75rem, 9vw, 9rem);
   --text-display-xl--line-height: 0.92;
   --text-display-xl--letter-spacing: -0.045em;
 
